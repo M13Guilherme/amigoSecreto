@@ -4,19 +4,38 @@ function adicionar() {
     let amigo = document.getElementById('nome-amigo');
     let lista = document.getElementById('lista-amigos');
 
+    if (amigo.value == '') {
+        alert('Por favor, insira um nome!');
+        return;
+    }
     if (amigos.includes(amigo.value)) {
         alert('Nome duplicado!');
         return;
     }
     amigos.push(amigo.value);
-    if (lista.textContent == '') {
-        lista.textContent = amigo.value;
-    } else {
-        lista.textContent = lista.textContent + ', ' + amigo.value;
+
+    let itemLista = document.createElement('p');
+    itemLista.textContent = amigo.value;
+    lista.appendChild(itemLista);
+    itemLista.onclick = function () {
+        remover(amigo.value, itemLista);
     }
+    lista.appendChild(itemLista);
+
     amigo.value = '';
 }
+
+function remover(nome, elemento) {
+    amigos.splice(amigos.indexOf(nome), 1);
+    elemento.remove();
+}
+
 function sortear() {
+    if (amigos.length < 3) {
+        alert('Adicione ao menos 3 nomes para sorteio!');
+        return;
+
+    }
     embaralha(amigos);
 
     let sorteio = document.getElementById('lista-sorteio');
