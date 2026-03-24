@@ -3,6 +3,11 @@ let amigos = [];
 function adicionar() {
     let amigo = document.getElementById('nome-amigo');
     let lista = document.getElementById('lista-amigos');
+
+    if (amigos.includes(amigo.value)) {
+        alert('Nome duplicado!');
+        return;
+    }
     amigos.push(amigo.value);
     if (lista.textContent == '') {
         lista.textContent = amigo.value;
@@ -41,6 +46,6 @@ function embaralha(lista) {
 
 function reiniciar() {
     amigos = [];
-document.getElementById('lista-amigos').innerHTML = '';
-document.getElementById('lista-sorteio').innerHTML = '';
+    document.getElementById('lista-amigos').innerHTML = '';
+    document.getElementById('lista-sorteio').innerHTML = '';
 }
