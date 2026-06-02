@@ -11,11 +11,13 @@ A aplicação permite cadastrar participantes e realizar o sorteio automaticamen
 ## 🚀 Funcionalidades
 
 - Adicionar participantes à lista
+- Nomes convertidos automaticamente para maiúsculas — evita duplicatas por diferença de capitalização
+- Impedir nomes duplicados na lista
 - Remover participantes da lista clicando no nome
 - Validar campo vazio ao adicionar um nome
-- Impedir nomes duplicados na lista
-- Exigir mínimo de 3 participantes para realizar o sorteio
-- Embaralhar os participantes de forma aleatória antes do sorteio
+- Adicionar participante pressionando **Enter** ou clicando no botão
+- Exigir mínimo de 4 participantes para realizar o sorteio
+- Embaralhar os participantes com o algoritmo Fisher-Yates antes do sorteio
 - Exibir o resultado do sorteio na tela
 - Reiniciar o sorteio limpando todos os dados
 
@@ -53,4 +55,6 @@ git clone https://github.com/M13Guilherme/amigoSecreto.git
 - Criação e remoção dinâmica de elementos com `createElement()`, `appendChild()` e `remove()`
 - Uso de `indexOf()` para localizar itens no array
 - Navegação por arrays com laço `for`
+- Conversão de strings com `toUpperCase()`
+- Captura de eventos de teclado com `addEventListener()` e `keypress`
 - Validação de entradas do usuário com mensagens de alerta
