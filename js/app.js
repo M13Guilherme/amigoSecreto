@@ -2,12 +2,12 @@ let amigos = [];
 
 function adicionar() {
     let amigo = document.getElementById('nome-amigo');
-    let lista = document.getElementById('lista-amigos');
-
+    amigo.value = amigo.value.toUpperCase();
     if (amigo.value == '') {
-        alert('Por favor, insira um nome!');
-        return;
+        alert('Digite o nome do amigo!');
+        return
     }
+    let lista = document.getElementById('lista-amigos');
     if (amigos.includes(amigo.value)) {
         alert('Nome duplicado!');
         return;
@@ -16,7 +16,6 @@ function adicionar() {
 
     let itemLista = document.createElement('p');
     itemLista.textContent = amigo.value;
-    lista.appendChild(itemLista);
     itemLista.onclick = function () {
         remover(amigo.value, itemLista);
     }
@@ -31,10 +30,9 @@ function remover(nome, elemento) {
 }
 
 function sortear() {
-    if (amigos.length < 3) {
-        alert('Adicione ao menos 3 nomes para sorteio!');
+    if (amigos.length < 4) {
+        alert('Adicione ao menos 4 amigos para sorteio!');
         return;
-
     }
     embaralha(amigos);
 
@@ -68,3 +66,9 @@ function reiniciar() {
     document.getElementById('lista-amigos').innerHTML = '';
     document.getElementById('lista-sorteio').innerHTML = '';
 }
+
+document.getElementById('nome-amigo').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        adicionar();
+    }
+});
